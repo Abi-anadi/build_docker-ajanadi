@@ -61,9 +61,9 @@ pipeline{
         stage("Push image to Docker Hub"){
             steps{
                 withCredentials([usernamePassword(credentialsId: 'DOCKER_CREDS_AJANADI', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]){
-                    sh """
+                    sh '''
                     docker login  --username $USERNAME --password $PASSWORD && docker push ajanadi/${BRANCH_NAME}_default_image:latest
-                    """
+                    '''
                 }
             }
         }
