@@ -37,7 +37,7 @@ pipeline{
                 sh "echo $BRANCH_NAME"
                 sh "echo $env.GIT_BRANCH"
                 sh "printenv"
-                sh "docker build -t ajanadi/${BRANCH_NAME}_default_image ."
+                sh "docker build -t abidej/${BRANCH_NAME}_default_image ."
             }
         }
 
@@ -46,7 +46,7 @@ pipeline{
             steps {
                 // sh "docker container stop default_container_$env.BRANCH_NAME"
                 // sh "docker container rm default_container_$env.BRANCH_NAME"
-                sh "docker run -d -p 5000:8000 --name default_container_$env.BRANCH_NAME ajanadi/${BRANCH_NAME}_default_image"
+                sh "docker run -d -p 5000:8000 --name default_container_$env.BRANCH_NAME abidej/${BRANCH_NAME}_default_image"
             }
         }
 
